@@ -20,9 +20,13 @@ public class LoadingScreen : MonoBehaviour
 
         if (doFadeOutOnLoad)
         {
+            group.alpha = 0f;
+            // REPLACE THE LINE ABOVE THIS WITH THE BOTTOM STUFF HERE TO ADD TWEENING!
+            /*
             group.alpha = 1f;
             tween?.Kill();
             tween = group.DOFade(0, 2f).SetEase(Ease.Linear);
+            */
         } else
         {
             group.alpha = 0f;
@@ -31,9 +35,10 @@ public class LoadingScreen : MonoBehaviour
 
     public void GoToScene(int sceneIndex)
     {
+        /*
         tween?.Kill();
         loadingBar.gameObject.SetActive(false);
-        tween = group.DOFade(1, 2f).SetEase(Ease.Linear).OnComplete(() => StartCoroutine(StartLoading(sceneIndex)));
+        tween = group.DOFade(1, 2f).SetEase(Ease.Linear).OnComplete(() => */StartCoroutine(StartLoading(sceneIndex)); // add a CLOSED BRACKET ")" before the ; after uncommenting
     }
 
     private IEnumerator StartLoading(int sceneIndex)
